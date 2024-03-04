@@ -216,7 +216,7 @@ namespace GuessGame
                 Console.WriteLine(actualNumber);
 
             }
-            //Console.WriteLine("Guess the number:");
+            
 
             int i = 0;
             for (i = 0; i < 10; i++)
