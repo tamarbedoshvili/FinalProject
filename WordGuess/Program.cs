@@ -105,7 +105,7 @@ namespace WordGuess
                 if (!data.Select(x => x.Password).Contains(finalVersion))
                 {
                     return finalVersion;
-                    break;
+                   
                 }
 
             }
@@ -134,30 +134,7 @@ namespace WordGuess
             return result;
         }
 
-        public static void ToXML(User User)
-        {
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(fileLocation);
-            XmlElement xmlUser = xDoc.CreateElement("User");
-            XmlElement xmlUserName = xDoc.CreateElement("Name");
-            xmlUserName.InnerText = User.UserName.ToString();
-            xmlUser.AppendChild(xmlUserName);
-            XmlElement xmlUserScore = xDoc.CreateElement("Score");
-            xmlUserScore.InnerText = User.Score.ToString();
-            xmlUser.AppendChild(xmlUserScore);
-            XmlElement xmlUserPassword = xDoc.CreateElement("Password");
-            xmlUserPassword.InnerText = User.Password.ToString();
-            xmlUser.AppendChild(xmlUserPassword);
-
-
-            XmlElement root = xDoc.DocumentElement;
-            root.AppendChild(xmlUser);
-            xDoc.Save(fileLocation);
-
-
-
-
-        }
+    
         public static void AddNewUser(User User)
         {
 

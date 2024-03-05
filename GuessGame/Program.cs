@@ -49,7 +49,7 @@ namespace GuessGame
                 if (!Users.Select(x => x.Password).Contains(finalVersion))
                 {
                    return finalVersion;
-                    break;
+                   
                 }
 
             }
@@ -94,7 +94,7 @@ namespace GuessGame
         public static void Save()
         {
             File.WriteAllText(FileLocation, "Username,Score,Password");
-            Users = Users.OrderByDescending(x => x.Score).DistinctBy(x=>x.Password).ToList();
+            Users = Users.OrderByDescending(x => x.Score).DistinctBy(x => x.Password).ToList();
             foreach (var user in Users)
             {
                 using (StreamWriter writer = new(FileLocation, append: true))
