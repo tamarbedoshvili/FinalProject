@@ -76,24 +76,6 @@ namespace ATM_account
             return result;
         }
 
-        private static string ToJson(Client model)
-        {
-            string jsonObject = JsonSerializer.Serialize(model);
-            return jsonObject;
-        }
-
-
-
-
-        public List<Client> GetAllCustomers()
-        {
-            if (Clients.Count <= 0)
-            {
-                throw new Exception("Data storage is empty");
-            }
-
-            return Clients;
-        }
 
 
         public static void SaveOperation(Operation operation)

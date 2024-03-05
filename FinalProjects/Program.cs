@@ -56,7 +56,7 @@ namespace FinalProjects
             Console.WriteLine("TYPE 'end' IF YOU WANT TO EXIT");
             string input = string.Empty;
 
-            while (1!=2)
+            while (true)
             { 
                 
                 Calculator calculator = new Calculator();

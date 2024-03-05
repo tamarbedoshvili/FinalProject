@@ -255,10 +255,10 @@ namespace WordGuess
                     Console.WriteLine($"Your score is - {user.Score}");
                     PrintFirstTen();
                     return; }
-                while(input.Length != 1)
+                while (input.Length == 0)
                 {
-                    Console.WriteLine("Please enter only one letter");
-                     input = Console.ReadLine();
+                    Console.WriteLine("Please enter at least one letter");
+                    input = Console.ReadLine();
                 }
                 if (word.Contains(input))
                 {

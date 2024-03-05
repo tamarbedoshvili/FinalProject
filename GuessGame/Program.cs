@@ -200,20 +200,20 @@ namespace GuessGame
             {
                 Console.WriteLine("Guess the number from the range - [1;15]:");
                 actualNumber = random.Next(1, 15);
-
+                //Console.WriteLine(actualNumber);
             }
             else if (difficulty == "medium")
             {
                 Console.WriteLine("Guess the number from the range - [1;25]:");
                 actualNumber = random.Next(1, 25);
-
+                //Console.WriteLine(actualNumber);
             }
             else
 
             {
                 Console.WriteLine("Guess the number from the range - [1;50]:");
                 actualNumber = random.Next(1, 50);
-                Console.WriteLine(actualNumber);
+                //Console.WriteLine(actualNumber);
 
             }
             
