@@ -21,7 +21,7 @@ namespace GuessGame
         internal class Program
 
     {
-        public const string FileLocation = "C:\\Users\\User\\source\\repos\\FinalProjects\\GuessGame\\UsersHistory.csv";
+        public const string FileLocation = @"../../../UsersHistory.csv";
         public static List<User> Users { get; set; } = new List<User>();
         public static void Read() {
             using (StreamReader reader = new(FileLocation))

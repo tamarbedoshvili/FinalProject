@@ -11,8 +11,8 @@ namespace ATM_account
     }
     public class Client
     {
-        public const string FileLocationClientsHistory = "C:\\Users\\User\\source\\repos\\FinalProjects\\ATM account\\ClientsHistory.json";
-        public const string FileLocationClients = "C:\\Users\\User\\source\\repos\\FinalProjects\\ATM account\\Clients.json";
+        public const string FileLocationClientsHistory = @"../../../ClientsHistory.json";
+        public const string FileLocationClients = @"../../../Clients.json";
         public static List<Client> Clients = new();
         public static List<Operation> Operations = new();
         

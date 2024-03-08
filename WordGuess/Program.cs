@@ -43,7 +43,7 @@ namespace WordGuess
 
     internal class Program
     {
-        public const string fileLocation = "C:\\Users\\User\\source\\repos\\FinalProjects\\WordGuess\\UsersHistory.xml";
+        public const string fileLocation = @"../../../UsersHistory.xml";
         public static List<User> data = new();
 
         public static void Read()
@@ -162,6 +162,19 @@ namespace WordGuess
                 }
             }
         }
+        public static bool Validation(string message)
+        {
+            foreach(char x in message)
+            {
+                if (char.IsDigit(x))
+                {
+                    return false;
+                    
+                }
+
+            }
+            return true;
+        }
         static void Main(string[] args)
         {
             Read(); 
@@ -213,6 +226,7 @@ namespace WordGuess
             }
             Console.WriteLine("Guess the word. You have 6 tries.");
             string word = WordsGame.RandomWord();
+            
             Console.WriteLine(WordsGame.Visualize(word));
             Console.WriteLine("Enter the letter:");
             int trial = 6;
@@ -220,7 +234,13 @@ namespace WordGuess
             while (trial > 0)
             {
                 user.Score = 1000 - (6 - trial) * 100;
-                string input = Console.ReadLine(); 
+                string input = Console.ReadLine();
+                while (!Validation(input))
+                {
+                    Console.WriteLine("Please enter only letters:");
+                    input = Console.ReadLine();
+                }
+
                 if (input == word) { Console.WriteLine("YOU WON"); 
                     AddNewUser(user);
                     Console.WriteLine($"Your score is - {user.Score}");
@@ -265,15 +285,37 @@ namespace WordGuess
 
                 
             }
-            user.Score = 0;
-            AddNewUser(user);
-            Console.WriteLine("YOU LOST");
-            Console.WriteLine($"Your score is - {user.Score}");
-            PrintFirstTen();
+            Console.WriteLine("Last change - guess the word:");
+            string lastChance = Console.ReadLine();
+            while (!Validation(lastChance))
+            {
+                Console.WriteLine("Please enter only letters:");
+                lastChance = Console.ReadLine();
 
-
-
-
+            }
+            if ( lastChance == word )
+            {
+                user.Score = 400;
+                Console.WriteLine("YOU WON");
+                AddNewUser(user);
+                Console.WriteLine($"Your score is - {user.Score}");
+                PrintFirstTen();
+                return;
+            }
+            else
+            {
+                user.Score = 0;
+                AddNewUser(user);
+                Console.WriteLine("YOU LOST");
+                Console.WriteLine($"Your score is - {user.Score}");
+                PrintFirstTen(); return;
+            }
         }
+          
+
+
+
+
+        
     }
 }
